@@ -14,13 +14,13 @@ class MetricCard:
         <div class="metric-card">
             <div style="display: flex; justify-content: space-between; align-items: start;">
                 <div style="flex: 1;">
-                    <div style="font-size: 0.85rem; color: #888;">
+                    <div style="font-size: 0.85rem; color: #B6C2D9; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px;">
                         {label}
                     </div>
-                    <div style="font-size: 1.8rem; font-weight: 700; color: #ffd700; margin-top: 0.5rem;">
+                    <div style="font-size: 28px; font-weight: 800; color: #FFD000; margin-top: 0.5rem; font-family: 'Orbitron', sans-serif; text-shadow: 0 0 10px rgba(255, 208, 0, 0.2);">
                         {value}
                     </div>
-                    {f'<div style="font-size: 0.75rem; color: #aaa; margin-top: 0.3rem;">{delta}</div>' if delta else ''}
+                    {f'<div style="font-size: 0.75rem; color: #00E5FF; margin-top: 0.3rem; font-family: Inter, sans-serif;">{delta}</div>' if delta else ''}
                 </div>
                 <div style="font-size: 1.5rem; margin-left: 1rem;">
                     {status}
@@ -52,18 +52,18 @@ class DriverCard:
         <div class="driver-card">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <div style="flex: 1;">
-                    <div style="font-size: 1.1rem; font-weight: 700; color: #ffd700;">
+                    <div style="font-size: 1.1rem; font-weight: 700; color: #FFFFFF; font-family: 'Orbitron', sans-serif;">
                         {position}. {driver_name}
                     </div>
-                    <div style="font-size: 0.85rem; color: #888; margin-top: 0.3rem;">
+                    <div style="font-size: 0.85rem; color: #B6C2D9; margin-top: 0.3rem;">
                         {team}
                     </div>
                 </div>
                 <div style="text-align: right;">
-                    <div style="font-size: 1.2rem; font-weight: 700; color: #00ff00;">
+                    <div style="font-size: 1.2rem; font-weight: 800; color: #00FFB3; font-family: 'Orbitron', sans-serif;">
                         {points}pts
                     </div>
-                    <div style="font-size: 0.75rem; color: #888; margin-top: 0.2rem;">
+                    <div style="font-size: 0.75rem; color: #6F7B96; margin-top: 0.2rem;">
                         {best_lap}
                     </div>
                 </div>

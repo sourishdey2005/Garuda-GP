@@ -29,7 +29,7 @@ if 'selected_team' not in st.session_state:
 
 # Main header
 ui_theme.page_header(
-    title="GarudaGP",
+    title="GARUDAGP",
     subtitle="AI-Powered Formula 1 Telemetry & Strategy Intelligence Platform",
     icon="🏎️",
 )

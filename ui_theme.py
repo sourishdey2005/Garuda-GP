@@ -9,113 +9,218 @@ def inject_global_css() -> None:
     st.markdown(
         """
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;800;900&display=swap');
+
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
 
-    html, body, [data-testid="stAppViewContainer"] {
-        background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
-        color: #e0e0e0;
-        font-family: 'Segoe UI', 'Roboto', sans-serif;
+    html, body, [data-testid="stAppViewContainer"], .stApp {
+        background: #050816 !important;
+        background-image: radial-gradient(circle at 15% 50%, rgba(0, 229, 255, 0.04), transparent 50%), 
+                          radial-gradient(circle at 85% 30%, rgba(255, 208, 0, 0.04), transparent 50%) !important;
+        color: #FFFFFF !important;
+        font-family: 'Inter', sans-serif !important;
     }
 
     /* Sidebar */
     [data-testid="stSidebar"] {
-        background: rgba(15, 20, 40, 0.95);
-        backdrop-filter: blur(10px);
-        border-right: 1px solid rgba(255, 215, 0, 0.1);
+        background: #081122 !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+    }
+    [data-testid="stSidebar"] * {
+        font-family: 'Inter', sans-serif;
     }
 
     /* Headers / Sections */
     .gg-main-header {
-        background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), rgba(255, 215, 0, 0.02));
-        border-left: 4px solid #ffd700;
-        padding: 1.4rem 1.5rem;
-        border-radius: 10px;
-        margin-bottom: 1.8rem;
-        box-shadow: 0 8px 32px rgba(255, 215, 0, 0.08);
-        backdrop-filter: blur(10px);
+        background: rgba(18, 25, 45, 0.65);
+        border-left: 4px solid #FFD000;
+        padding: 24px;
+        border-radius: 22px;
+        margin-bottom: 28px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5), inset 0 0 20px rgba(255, 208, 0, 0.05);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-left: 4px solid #FFD000;
+        transition: all 0.3s ease;
+    }
+    
+    .gg-main-header:hover {
+        box-shadow: 0 8px 32px rgba(255, 208, 0, 0.15), inset 0 0 20px rgba(255, 208, 0, 0.05);
     }
 
     .gg-main-header h1 {
-        color: #ffd700;
-        font-size: 2.35rem;
-        font-weight: 900;
+        color: #FFFFFF;
+        font-family: 'Orbitron', sans-serif !important;
+        font-size: 2.5rem;
+        font-weight: 800;
         margin: 0;
-        text-shadow: 0 2px 10px rgba(255, 215, 0, 0.3);
-        letter-spacing: -0.8px;
+        letter-spacing: 1px;
+        text-shadow: 0 0 15px rgba(255, 208, 0, 0.3);
+        text-transform: uppercase;
     }
 
     .gg-main-header p {
-        color: #8a8a8a;
-        font-size: 0.96rem;
-        margin-top: 0.55rem;
+        color: #B6C2D9;
+        font-size: 1rem;
+        margin-top: 0.5rem;
+        letter-spacing: 0.5px;
     }
 
-    .gg-section-header {
-        color: #ffd700;
-        font-size: 1.45rem;
-        font-weight: 750;
-        margin: 2rem 0 1rem 0;
-        padding-bottom: 0.55rem;
-        border-bottom: 2px solid rgba(255, 215, 0, 0.28);
-        letter-spacing: 0.2px;
+    .section-header, .gg-section-header {
+        color: #00E5FF;
+        font-family: 'Orbitron', sans-serif !important;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin: 28px 0 16px 0;
+        padding-bottom: 8px;
+        border-bottom: 1px solid rgba(0, 229, 255, 0.2);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
     }
 
     .gg-subheader {
         color: rgba(255, 255, 255, 0.88);
         font-size: 1.05rem;
-        font-weight: 650;
+        font-weight: 600;
         margin: 1rem 0 0.75rem;
+        font-family: 'Inter', sans-serif;
     }
 
-    .gg-card {
-        background: linear-gradient(135deg, rgba(20, 30, 60, 0.75), rgba(30, 40, 70, 0.75));
-        border: 1px solid rgba(255, 215, 0, 0.15);
-        border-radius: 12px;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 10px 34px rgba(0, 0, 0, 0.30);
-    }
-
-    .gg-metric-card {
-        padding: 1.2rem;
-        border-radius: 12px;
+    .gg-card, .metric-card, .driver-card {
+        background: rgba(18, 25, 45, 0.85);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 22px;
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding: 24px;
+        margin-bottom: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
         transition: all 0.3s ease;
     }
 
-    .gg-metric-card:hover {
-        border-color: rgba(255, 215, 0, 0.42);
-        box-shadow: 0 14px 48px rgba(255, 215, 0, 0.12);
-        transform: translateY(-2px);
+    .gg-card:hover, .metric-card:hover, .driver-card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(0, 229, 255, 0.3);
+        box-shadow: 0 12px 40px rgba(0, 229, 255, 0.15);
+    }
+
+    /* Streamlit Native Metrics override */
+    [data-testid="stMetric"] {
+        background: rgba(18, 25, 45, 0.85);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 22px;
+        padding: 20px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(16px);
+        transition: all 0.3s ease;
+    }
+    [data-testid="stMetric"]:hover {
+        transform: translateY(-4px);
+        border-color: rgba(255, 208, 0, 0.3);
+        box-shadow: 0 12px 40px rgba(255, 208, 0, 0.15);
+    }
+    [data-testid="stMetricValue"] {
+        font-family: 'Orbitron', sans-serif !important;
+        color: #FFD000 !important;
+        font-size: 28px !important;
+        font-weight: 800 !important;
+        text-shadow: 0 0 10px rgba(255, 208, 0, 0.2);
+    }
+    [data-testid="stMetricLabel"] {
+        color: #B6C2D9 !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    [data-testid="stMetricDelta"] {
+        font-family: 'Inter', sans-serif !important;
+        color: #00FFB3 !important;
+    }
+
+    /* Expander */
+    .streamlit-expanderHeader {
+        font-family: 'Orbitron', sans-serif !important;
+        color: #00E5FF !important;
+        background: rgba(18, 25, 45, 0.85) !important;
+        border-radius: 12px !important;
+        border: 1px solid rgba(255,255,255,0.08) !important;
     }
 
     /* Input fields */
-    input, select {
-        background: rgba(30, 40, 70, 0.8) !important;
-        border: 1px solid rgba(255, 215, 0, 0.2) !important;
-        color: #e0e0e0 !important;
-        border-radius: 6px !important;
+    .stSelectbox > div > div {
+        background: rgba(18, 25, 45, 0.85) !important;
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+        border-radius: 12px !important;
+        color: #FFFFFF !important;
+        transition: all 0.3s ease;
     }
-
-    input:focus, select:focus {
-        border-color: #ffd700 !important;
-        box-shadow: 0 0 10px rgba(255, 215, 0, 0.2) !important;
+    .stSelectbox > div > div:hover {
+        border-color: #00E5FF !important;
+        box-shadow: 0 0 10px rgba(0, 229, 255, 0.2) !important;
+    }
+    .stSelectbox label {
+        color: #B6C2D9 !important;
+        font-size: 0.9rem !important;
     }
 
     /* Tabs */
     [data-baseweb="tab-list"] {
-        border-bottom: 2px solid rgba(255, 215, 0, 0.1) !important;
+        background-color: transparent !important;
+        gap: 24px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     }
 
     [data-baseweb="tab"] {
-        color: #888 !important;
+        font-family: 'Orbitron', sans-serif !important;
+        color: #6F7B96 !important;
+        font-weight: 600 !important;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: none !important;
+        background-color: transparent !important;
+        transition: all 0.3s ease;
+    }
+    .stTabs [data-baseweb="tab"]:hover {
+        color: #00E5FF !important;
+    }
+    [aria-selected="true"] [data-baseweb="tab"] {
+        color: #00E5FF !important;
+        border-bottom: 2px solid #00E5FF !important;
+        text-shadow: 0 0 15px rgba(0, 229, 255, 0.4) !important;
     }
 
-    [aria-selected="true"] [data-baseweb="tab"] {
-        color: #ffd700 !important;
-        border-bottom: 3px solid #ffd700 !important;
+    /* Dataframes / Tables */
+    [data-testid="stDataFrame"] {
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    
+    /* Buttons */
+    .stButton > button {
+        background: linear-gradient(135deg, rgba(0, 229, 255, 0.1), rgba(0, 229, 255, 0.05)) !important;
+        border: 1px solid rgba(0, 229, 255, 0.4) !important;
+        color: #00E5FF !important;
+        font-family: 'Orbitron', sans-serif !important;
+        font-weight: 700 !important;
+        border-radius: 12px !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1px !important;
+        transition: all 0.3s ease !important;
+    }
+    .stButton > button:hover {
+        background: rgba(0, 229, 255, 0.2) !important;
+        box-shadow: 0 0 20px rgba(0, 229, 255, 0.4) !important;
+        transform: translateY(-2px) !important;
+        color: #FFF !important;
     }
 
     /* Scrollbar styling */
@@ -125,37 +230,39 @@ def inject_global_css() -> None:
     }
 
     ::-webkit-scrollbar-track {
-        background: rgba(255, 215, 0, 0.05);
+        background: #050816;
     }
 
     ::-webkit-scrollbar-thumb {
-        background: rgba(255, 215, 0, 0.3);
-        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-        background: rgba(255, 215, 0, 0.5);
+        background: rgba(0, 229, 255, 0.5);
     }
 
     /* Footer */
     .gg-footer {
         text-align: center;
-        padding: 2rem 1rem;
-        margin-top: 3rem;
-        border-top: 1px solid rgba(255, 215, 0, 0.1);
-        color: #6a6a6a;
-        font-size: 0.85rem;
+        padding: 30px 20px;
+        margin-top: 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        color: #6F7B96;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.9rem;
+        backdrop-filter: blur(10px);
     }
 
     .gg-footer a {
-        color: #ffd700;
+        color: #00E5FF;
         text-decoration: none;
         transition: all 0.3s ease;
     }
 
     .gg-footer a:hover {
-        color: #ffed4e;
-        text-decoration: underline;
+        color: #FFD000;
+        text-shadow: 0 0 10px rgba(255, 208, 0, 0.5);
     }
 </style>
 """,
@@ -167,7 +274,7 @@ def page_header(title: str, subtitle: str, icon: str = "🏎️") -> None:
     st.markdown(
         f"""
 <div class="gg-main-header">
-  <h1>{icon} {title}</h1>
+  <h1>{icon} <span style="color:#FFFFFF">{title}</span></h1>
   <p>{subtitle}</p>
 </div>
 """,
@@ -186,13 +293,13 @@ def footer() -> None:
     st.markdown(
         """
 <div class="gg-footer">
-  <p><strong>Made by Sourish Dey</strong></p>
-  <p>
-    <a href="https://www.linkedin.com/in/sourish-dey-20b170206/?skipRedirect=true" target="_blank">LinkedIn</a>
-    &nbsp;•&nbsp;
-    <a href="https://sourishdeyportfolio.vercel.app/" target="_blank">Portfolio</a>
+  <p style="font-family: 'Orbitron', sans-serif; color: #FFFFFF; font-weight: 600; letter-spacing: 1px;">GarudaGP © 2026</p>
+  <p>AI-Powered Motorsport Intelligence &nbsp;•&nbsp; Telemetry Engine Active</p>
+  <p style="margin-top: 10px;">
+      <a href="https://www.linkedin.com/in/sourish-dey-20b170206/?skipRedirect=true" target="_blank">LinkedIn</a>
+      &nbsp;|&nbsp;
+      <a href="https://sourishdeyportfolio.vercel.app/" target="_blank">Portfolio</a>
   </p>
-  <p style="margin-top: 1rem; color: #555;">GarudaGP v1.0 - Premium F1 Telemetry Intelligence Platform</p>
 </div>
 """,
         unsafe_allow_html=True,
@@ -209,8 +316,8 @@ def plotly_common_layout(fig, *, height: int = 360):
         height=height,
         margin=dict(l=10, r=10, t=40, b=10),
         hovermode="x unified",
+        font=dict(family="Inter, sans-serif", color="#B6C2D9")
     )
-    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor="rgba(255,215,0,0.1)")
-    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor="rgba(255,215,0,0.1)")
+    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor="rgba(255,255,255,0.06)", title_font=dict(color="#B6C2D9"))
+    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor="rgba(255,255,255,0.06)", title_font=dict(color="#B6C2D9"))
     return fig
-

@@ -13,9 +13,9 @@ def create_speed_trace(distance: np.ndarray, speed: np.ndarray, driver_name: str
         y=speed,
         mode='lines',
         name='Speed',
-        line=dict(color='#ffd700', width=2),
+        line=dict(color='#FFD000', width=2),
         fill='tozeroy',
-        fillcolor='rgba(255, 215, 0, 0.1)'
+        fillcolor='rgba(255, 208, 0, 0.1)'
     ))
     
     fig.update_layout(
@@ -25,13 +25,13 @@ def create_speed_trace(distance: np.ndarray, speed: np.ndarray, driver_name: str
         template='plotly_dark',
         height=400,
         paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0.1)',
+        plot_bgcolor='rgba(0,0,0,0)',
         showlegend=False,
         hovermode='x unified'
     )
     
-    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,215,0,0.1)')
-    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,215,0,0.1)')
+    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,255,255,0.06)')
+    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,255,255,0.06)')
     
     return fig
 
@@ -39,7 +39,7 @@ def create_position_evolution(laps: np.ndarray, positions: dict) -> go.Figure:
     """Create position evolution chart"""
     fig = go.Figure()
     
-    colors = ['#ffd700', '#ff6b6b', '#4ecdc4', '#00ff00', '#ff00ff']
+    colors = ['#FFD000', '#FF4D6D', '#00E5FF', '#00FFB3', '#A855F7']
     
     for idx, (driver, pos_data) in enumerate(positions.items()):
         fig.add_trace(go.Scatter(
@@ -58,12 +58,12 @@ def create_position_evolution(laps: np.ndarray, positions: dict) -> go.Figure:
         template='plotly_dark',
         height=400,
         paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0.1)',
+        plot_bgcolor='rgba(0,0,0,0)',
         hovermode='x unified'
     )
     
-    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,215,0,0.1)')
-    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,215,0,0.1)')
+    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,255,255,0.06)')
+    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,255,255,0.06)')
     
     return fig
 
@@ -71,7 +71,7 @@ def create_delta_chart(distance: np.ndarray, delta: np.ndarray) -> go.Figure:
     """Create delta/gap chart"""
     fig = go.Figure()
     
-    colors = ['#ff6b6b' if d > 0 else '#00ff00' for d in delta]
+    colors = ['#FF4D6D' if d > 0 else '#00FFB3' for d in delta]
     
     fig.add_trace(go.Scatter(
         x=distance,
@@ -79,7 +79,7 @@ def create_delta_chart(distance: np.ndarray, delta: np.ndarray) -> go.Figure:
         mode='lines',
         name='Delta',
         fill='tozeroy',
-        line=dict(color='#ff6b6b', width=2),
+        line=dict(color='#FF4D6D', width=2),
         fillcolor='rgba(255, 107, 107, 0.2)'
     ))
     
@@ -92,13 +92,13 @@ def create_delta_chart(distance: np.ndarray, delta: np.ndarray) -> go.Figure:
         template='plotly_dark',
         height=400,
         paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0.1)',
+        plot_bgcolor='rgba(0,0,0,0)',
         showlegend=False,
         hovermode='x unified'
     )
     
-    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,215,0,0.1)')
-    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,215,0,0.1)')
+    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,255,255,0.06)')
+    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,255,255,0.06)')
     
     return fig
 
@@ -109,8 +109,8 @@ def create_radar_chart(categories: list, values: list, driver_name: str = "Drive
         theta=categories,
         fill='toself',
         name=driver_name,
-        line=dict(color='#ffd700'),
-        fillcolor='rgba(255, 215, 0, 0.3)'
+        line=dict(color='#FFD000'),
+        fillcolor='rgba(255, 208, 0, 0.3)'
     ))
     
     fig.update_layout(
@@ -120,10 +120,10 @@ def create_radar_chart(categories: list, values: list, driver_name: str = "Drive
                 range=[0, 100],
                 showline=True,
                 linewidth=2,
-                gridcolor='rgba(255, 215, 0, 0.2)'
+                gridcolor='rgba(255, 255, 255, 0.06)'
             ),
             angularaxis=dict(
-                gridcolor='rgba(255, 215, 0, 0.2)'
+                gridcolor='rgba(255, 255, 255, 0.06)'
             )
         ),
         showlegend=False,
@@ -151,11 +151,11 @@ def create_comparison_bar_chart(df: pd.DataFrame, x_col: str, y_col: str, title:
         height=350,
         showlegend=False,
         paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0.1)',
+        plot_bgcolor='rgba(0,0,0,0)',
     )
     
     fig.update_xaxes(showgrid=False)
-    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,215,0,0.1)')
+    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,255,255,0.06)')
     
     return fig
 
@@ -173,7 +173,7 @@ def create_heatmap(data: np.ndarray, x_labels: list, y_labels: list, title: str 
         template='plotly_dark',
         height=400,
         paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0.1)',
+        plot_bgcolor='rgba(0,0,0,0)',
     )
     
     return fig
@@ -182,7 +182,7 @@ def create_multi_line_chart(data: dict, x_label: str = "X", y_label: str = "Y", 
     """Create multi-line chart"""
     fig = go.Figure()
     
-    colors = ['#ffd700', '#ff6b6b', '#4ecdc4', '#00ff00', '#ff00ff']
+    colors = ['#FFD000', '#FF4D6D', '#00E5FF', '#00FFB3', '#A855F7']
     
     for idx, (name, y_data) in enumerate(data.items()):
         fig.add_trace(go.Scatter(
@@ -199,11 +199,11 @@ def create_multi_line_chart(data: dict, x_label: str = "X", y_label: str = "Y", 
         template='plotly_dark',
         height=350,
         paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0.1)',
+        plot_bgcolor='rgba(0,0,0,0)',
         hovermode='x unified'
     )
     
-    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,215,0,0.1)')
-    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,215,0,0.1)')
+    fig.update_xaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,255,255,0.06)')
+    fig.update_yaxes(showgrid=True, gridwidth=1, gridcolor='rgba(255,255,255,0.06)')
     
     return fig
