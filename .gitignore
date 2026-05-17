@@ -1,0 +1,28 @@
+__pycache__/
+*.py[cod]
+*.pyd
+*.pyo
+*.pkl
+
+.env
+
+# Virtual environments
+venv/
+.venv/
+env/
+.envrc
+
+# Caches / build artifacts
+cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+dist/
+build/
+*.egg-info/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
